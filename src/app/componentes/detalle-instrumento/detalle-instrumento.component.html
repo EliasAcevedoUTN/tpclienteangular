@@ -1,0 +1,29 @@
+<div class="container p-3">
+  <div class="row">
+    <div class="col-7" >
+      <img src="{{instrumento[0].imagen}}" style="width: 70%; margin: 0 auto;">
+      <p><b>Descripcion</b></p>
+      <p>{{instrumento[0].descripcion}}</p>
+    </div>
+    <div class="col-5">
+      <h4>{{instrumento[0].cantidad_vendida}} vendidos</h4>
+      <h1 class="display-4">{{instrumento[0].instrumento}}</h1>
+      <h1 class="display-4">$<b>{{instrumento[0].precio}}</b></h1>
+      <h3>Marca: {{instrumento[0].marca}}</h3>
+      <h3>Modelo: {{instrumento[0].modelo}}</h3>
+      <h3>Costo de Envio:</h3>
+      <div *ngIf="instrumento[0].costo_envio == 'G'">
+        <img src="../../../assets/images/camion.png">
+        <h3  style="display: inline;color: green;">Envio gratis</h3>
+      </div>
+      <div *ngIf="instrumento[0].costo_envio != 'G'">
+        <h3 style="color: red;">$ {{instrumento[0].costo_envio}}</h3>
+      </div>
+      <div class="row p-2">
+        <button [routerLink]="['/instrumentos']" class="btn btn-success m-1">Agregar al carrito</button>
+        <button class="btn btn-danger m-1" (click)="editarInstrumento(instrumento[0].id)">Editar</button>
+        <button class="btn btn-dark m-1" (click)="eliminarInstrumento(instrumento[0].id)">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

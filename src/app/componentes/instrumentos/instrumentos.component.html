@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="p-3" style="width: 80%; margin: 0 auto;">
+    <div class="card center m-2" *ngFor="let instrumento of instrumentosFile" >
+      <div class="row">
+        <div class="col-3">
+          <button (click)="verInstrumento(instrumento.id)">
+            <img class="card-img-top" src="{{instrumento.imagen}}" alt="Card image cap" style="max-height: 100%;">
+          </button>
+        </div>
+        <div class="col-9">
+          <h4 class="display-6">{{instrumento.instrumento}}</h4>
+          <h3>$ {{instrumento.precio}}</h3>
+          <div *ngIf="instrumento.costo_envio == 'G'">
+            <img src="../../../assets/images/camion.png" > <h5 style="color: green; display: inline;">Envio gratis a todo el pais</h5>
+          </div>
+          <div *ngIf="instrumento.costo_envio != 'G'">
+            <h5 style="color: orangered;">Costo de envio al interior de Argentina {{instrumento.costo_envio}}</h5>
+          </div>
+          <h6>Cantidad vendida: {{instrumento.cantidad_vendida}}</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
